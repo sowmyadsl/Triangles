@@ -15,14 +15,14 @@ get('/output') do
   c = params.fetch('side_c').to_i
   triangle = Triangle.new(a,b,c)
 
-  @message = if triangle.equilateral?
+  @message = if !triangle.istriangle?
+    "it is not a triangle!"
+  elsif triangle.equilateral?
     "it is equilateral!"
   elsif triangle.isosceles?
     "it is isosceles!"
   elsif triangle.scalene?
     "it is scalene!"
-  elsif !triangle.triangle?
-    "it is not a triangle!"
   end
   erb(:output)
 end

@@ -26,7 +26,7 @@ describe "Triangle#isosceles?" do
 
   it "returns false if all sides are equal" do
     triangle = Triangle.new(4,4,4)
-    expect(triangle.isosceles?).to eq false
+    expect(triangle.isosceles?).to eq true
   end
 
   it "returns false if all sides are different" do
@@ -54,17 +54,17 @@ describe "Triangle#triangle?" do
 
   it "returns false if sum of lengths of any two sides of a triangle is less than or equal to length of the third side" do
     triangle = Triangle.new(2,2,8)
-    expect(triangle.triangle?).to eq false
+    expect(triangle.istriangle?).to eq false
   end
 
   it "returns false if the triangle is missing a side" do
     triangle = Triangle.new(2,3,0)
-    expect(triangle.triangle?).to eq false
+    expect(triangle.istriangle?).to eq false
   end
 
   it "returns true if the triangle is equilateral" do
     triangle = Triangle.new(3,3,3)
-    expect(triangle.triangle?).to eq true
+    expect(triangle.istriangle?).to eq true
   end
 
 end
